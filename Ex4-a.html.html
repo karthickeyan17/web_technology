@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CALCULATOR</title>
+        <style>
+            .calculator__keys { 
+                display: grid; 
+            }
+            .con{
+                background-color: rgba(50, 189, 184, 0.454);
+                padding: 25px;
+                text-align: center;
+                color:black;
+                font-size: 20px;
+                border-radius: 15em;
+                width: 25em;
+                position:relative;                
+            }
+            .headin{
+                background-color:rgb(110, 107, 66);
+                text-align: center;
+                padding:30px;
+                font-size: 25px;
+                border-color:black;
+                position:sticky;
+            }
+            .bt{
+                size: 6px;
+                border-spacing: 2px;
+            }
+            
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body class="container" style="background-color: rgb(35, 76, 152);">
+        <div class="headin">
+        <h style="color: rgb(48, 45, 34);"> SIMPLE CALCULATOR</h>
+        </div><br><br>
+        <div class="headin" style="background-color: aqua;border-color: black;">
+            <br><br>
+        <form>
+            <label for=""></label><input type="textbox" name="input1" placeholder="Enter number 1">&emsp;
+            <label for=""></label><input type="textbox" name="input2" placeholder="Enter number 2"><br><br>
+            <center>
+            <label for="op">ENTER OPERATOR :</label>
+            <table >
+                <tr><td><button class="btn btn-primary bt" onclick="output('+')">ADD +</button> </td>&emsp;
+                <td><button class="btn btn-primary bt" onclick="output('-')">Sub -</button> </td>&emsp;
+                <td><button class="btn btn-primary bt" onclick="output('*')">multiply *</button> </td>&emsp;
+                <td><button class="btn btn-primary bt" onclick="output('/')">division /</button> </td>&emsp;
+                <td><button class="btn btn-primary bt" onclick="output('%')">modulus %</button> </td></tr>
+            </table><br><br>
+            <h style="font-size: 100%;";">value is:<input type="text" id="out"></h>
+        </center>
+        </div>
+            
+        </form>
+        <script>
+            function output(ch){
+                var num1= parseInt(document.getElementsByName('input1')[0].value);
+                var num2=parseInt(document.getElementsByName('input2')[0].value);
+                var result;
+                switch(ch){
+                    case '+':{result=num1+num2;break;}
+                    case '-':{result=num1-num2;break;}
+                    case '*':{result=num1*num2;break;}
+                    case '/':{result=num1/num2;break;}
+                    case '%':{result=num1%num2;break;}
+                    default:{document.writeln("!!!!ENTER PROPER OPERATOR!!!!");}
+                }
+                document.getElementById("out").value=result;
+            }
+        </script>
+    </body>
+</html>
+
