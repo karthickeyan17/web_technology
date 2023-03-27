@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Form</title>
+    <script>
+        function color(){
+            let x = parseInt( Math.random() * 100);
+            return x,x+2,x+3;
+        }
+        function validate() {
+            
+            //name
+            var x = document.forms["my"]["fname"].value;
+            if (x == "") {alert("Name must be filled out"); return false;}
+            if(!isNaN(x)){alert("Name must only contains character ");return false;}
+            
+            //email
+            var x = document.forms["my"]["mail"].value;
+            var atpos = x.indexOf('@');
+            var dotpos = x.lastIndexOf('.')
+            if(""==x){alert("Mail must be filled");return false;}
+            else if(atpos==0 ||atpos+2>dotpos || dotpos+2> x.length){alert("EMAIL IS NOT VALID");return false;} 
+            //phone
+            let no = document.forms["my"]["number"].value;
+            if(no ==""){alert(" mobile number must be entered!! ");return false;}
+            else if(no.length!=10){alert("mobile number must be 10 numbers");return false;}
+
+            //course
+
+            //Gender
+            var g1 = document.forms["my"]["gen1"].value;
+            var g2 = document.forms["my"]["gen2"].value;
+            var g3 = document.forms["my"]["gen3"]
+            if(g1.checked==false && g2.checked==false  &&g3.checked==false){alert("ENTER YOUR GENDER");return false;}
+
+            //nationality
+            var nat=document.forms["my"]["na"].value;
+            if(""==nat){alert("Enter nationality");return false;}
+            else if(!isNaN(nat)){alert("nationality should only be characters");return false;}
+            //address
+            var add=document.forms["my"]["add"].value;
+            if(""==add){alert("Enter Address");return false;}
+            else if(!isNaN(add)){alert("Address should only be characters");return false;}
+
+            //Department
+            var dept=document.forms["my"]["dept"].value;
+            if(""==dept){alert("Enter Department");return false;}
+            else if(!isNaN(dept)){alert("Department should only be characters");return false;}
+
+            //password
+            var pas1=document.forms["my"]["pass"].value;
+            var pas2=document.forms["my"]["pass2"].value;
+            if(pas1==""||pas2==""){alert("Enter passward");return false;}
+            else if(pas1!=pas2){alert("Check your passward and conform it properly");return false;}
+            document.writeln("!!!!!!!!SUCCESSFULLY REGISTERED!!!!!!!!");
+        }
+    </script>
+</head>
+<body style="background-color: rgb(175, 211, 211);">
+    <div  style="text-align:center;border-radius: 20px;background-color: cornflowerblue;position;">
+        <h style="font-size: 50px;font-family: 'Times New Roman', Times, serif;">FORM FOR NPTEL REGISTRATION</h>
+    </div><br>
+    <fieldset style="border-width:5px;font-size:22px; background:color();">
+        <form name="my"  onsubmit="return validate()">
+            <label>Enter Name :  </label><input type="text" name="fname" placeholder="abcd"><br><br>
+            <label>Enter Mail Address :  </label><input type="text" name="mail" placeholder="abc@gmail.com"><br><br>
+            <label>Enter Phone :</label><input type="text" name="number"><br><br>
+            <label>Enter Course :</label>
+            <select>
+                <option name="co">Emotional Intelligence</option>
+                <option name="co">Ethical hacking</option>
+                <option name="co">Supply chain analytics</option>
+                <option name="co">Social network</option>
+                <option name="co">C++</option>
+            </select><br><br>
+            <label>GENDER : </label>
+            <input type="radio" name="gen1" value="Male">Male
+            <input type="radio" name="gen2" value="Female">Female
+            <input type="radio" name="gen3" value="Others">Others<br><br>
+            <label>Nationality :</label><input type="text" name="na"><br><br>
+            <label>Address :</label> <input type="text" name="add"><br><br>
+            <label>Department :</label><input type="text" name="dept"><br><br>
+            <label>DOB :</label><input type="date"><br><br>
+            <label>Password :</label><input type="password"  name="pass">&emsp13;
+            <label>Confirm password :</label><input type="password"  name="pass2"><br><br>
+            <center>
+                <input type="submit" value="Submit">
+            </center>
+        </form>
+    </fieldset>
+    
+</body>
+</html>
